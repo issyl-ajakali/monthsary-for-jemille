@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthsary!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffdae6, #ffc3e3);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hearts span {
+            position: absolute;
+            display: block;
+            color: rgba(255, 105, 180, 0.7);
+            font-size: 2rem;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            z-index: 1;
+            animation: floaty 3s ease-in-out infinite;
+        }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff69b4;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+
+        .emoji {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            animation: heartBeat 2s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .photo-gallery img {
+            width: 45%;
+            border-radius: 1.5rem;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .stickers {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            z-index: 1;
+        }
+
+        .stickers img {
+            width: 50px;
+            height: 50px;
+            animation: bounce 4s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .footer {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <span style="left:10%; animation-delay: 0s;">❤</span>
+        <span style="left:20%; animation-delay: 2s;">💖</span>
+        <span style="left:30%; animation-delay: 4s;">💕</span>
+        <span style="left:40%; animation-delay: 1s;">💓</span>
+        <span style="left:50%; animation-delay: 3s;">💗</span>
+        <span style="left:60%; animation-delay: 5s;">💞</span>
+        <span style="left:70%; animation-delay: 6s;">💝</span>
+        <span style="left:80%; animation-delay: 4s;">💘</span>
+        <span style="left:90%; animation-delay: 7s;">❤️</span>
+    </div>
+    <div class="card">
+        <h1>Happy Monthsary!</h1>
+        <div class="photo-gallery">
+            <img src="IMG_1733.JPG" alt="Jemille Smile 1">
+            <img src="IMG_1586.JPG" alt="Jemille Smile 2">
+        </div>
+        <div class="emoji">(≧◡≦) ♡</div>
+        <p>My Dearest Jemille,
+
+Happy 4th Monthsary, Langga!
+
+I can’t believe it’s already been four months — four months of laughter, memories, little fights, and lessons. I know our journey hasn’t always been smooth, and we’ve faced challenges and arguments that tested us. But even through all of that, one thing has stayed the same and will never change: I still love you, Jemille.
+
+I want you to know deep in your heart, there’s no other woman and there never will be. My loyalty is and always will be yours alone, Langga. I promise you, I only have eyes, time, and love for you. You are the person I prayed for, the one I want to share all my tomorrows with.
+
+Thank you for your patience, for loving me through my flaws, and for never giving up on us. I know I’m not perfect, but I promise I’ll keep growing and trying, for you, for us. I’m beyond grateful to have you, Jemille, in my life — and I will always cherish you.
+
+Happy Monthsary, Langga! I love you, now and always. Here’s to more months and years, and to a love that stays strong no matter what.
+
+Forever yours,
+Rich John</p>
+        <div class="footer">With all my love, always ✿</div>
+    </div>
+    <div class="stickers">
+        <img src="https://i.imgur.com/ht5w3sS.png" alt="Cute Bear">
+        <img src="https://i.imgur.com/ycK7YI5.png" alt="Kawaii Star">
+        <img src="https://i.imgur.com/jLO6M4r.png" alt="Sweet Bunny">
+    </div>
+</body>
+</html>
