@@ -125,6 +125,22 @@
             height: 50px;
             margin-top: 10px;
         }
+
+        /* Play Button */
+        .play-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff80ab;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
@@ -142,8 +158,9 @@
     </audio>
 
     <script>
+        // Play Music On Click
         document.addEventListener("click", () => {
-            document.getElementById("bg-music").play();
+            document.getElementById("bg-music").play().catch(err => console.log("Autoplay blocked:", err));
         }, { once: true });
     </script>
 
@@ -178,8 +195,11 @@
 
     <div class="footer">
         <p>Sending you all my love</p>
-        <img src="https://www.iconfinder.com/icons/1417989/cute_heart_love_kawaii_icon" alt="Kawaii Icon">
+        <img src="pngegg.png" alt="MY POTPOT">
     </div>
+
+    <!-- Play Button -->
+    <button class="play-btn" onclick="document.getElementById('bg-music').play()">💖 Play Song</button>
 
 </body>
 </html>
