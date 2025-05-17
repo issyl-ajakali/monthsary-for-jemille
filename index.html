@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Monthsary, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1f0036, #330033);
+      color: #f8f8ff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      background: linear-gradient(135deg, #3f0071, #ff1fa2);
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ffe6fb;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 3rem auto;
+      background-color: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px #ff00aa50;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff66c4;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: #ff1fa2;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.4s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    button:hover {
+      background: #ff66c4;
+      box-shadow: 0 0 15px #ff66c480;
+    }
+
+    #messageBox, #quizBox, #sliderBox, #videoBox {
+      margin-top: 1rem;
+      display: none;
+      text-align: center;
+    }
+
+    #sliderImage {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff33bb80;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+      box-shadow: 0 0 20px #ff33bb60;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💖 Happy Monthsary, Langga 💖</h1>
+  <p>May 18, 2025 — A night filled with stars... and us 🌌</p>
+</header>
+
+<section>
+  <h2>💌 Love Letter</h2>
+  <button onclick="revealMessage()">Reveal Message</button>
+  <div id="messageBox"></div>
+</section>
+
+<section>
+  <h2>❓ Little Love Quiz</h2>
+  <button onclick="startQuiz()">Start Quiz</button>
+  <div id="quizBox"></div>
+</section>
+
+<section>
+  <h2>🖼️ My Pretty Girlfriend</h2>
+  <button onclick="showSlider()">View Photos</button>
+  <div id="sliderBox">
+    <img id="sliderImage" src="" alt="Us 💑" />
+    <br>
+    <button onclick="prevPhoto()">⏮️</button>
+    <button onclick="nextPhoto()">⏭️</button>
+  </div>
+</section>
+
+<section>
+  <h2>🎬 A Special Video</h2>
+  <button onclick="showVideo()">Play Video</button>
+  <div id="videoBox">
+    <video controls>
+      <source src="Messenger_creation_5D787E90-C08E-401C-B797-0F2FE0CF6C11.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<footer>
+  Man lalaki well AHAHAHAHA.
+</footer>
+
+<script>
+  // Love messages
+  const messages = [
+    "Five months of us — wow, that’s like… a million in relationship years, right?
+We’ve had some epic battles (mostly me losing the argument), a few misunderstandings (okay, maybe a lot), and yes, I’ve messed up more times than I can count. But hey, you’re still here! How do you do that? Are you part superhero or just really patient?",
+    "You’re my favorite chaos and calm wrapped in one.
+Like a beautiful storm that sometimes throws a tantrum but always ends with a rainbow — that’s us.",
+    "I’m sorry for all my mistakes — the times I forgot to text back, the silly fights, and those “Langga, what were you thinking?” moments. Still, you stuck with me like glue on a windy day, and honestly, you deserve a medal… or at least a lifetime supply of snacks.
+",
+    "So here’s to five months of love, laughter, and learning how to survive each other’s quirks. I promise to keep trying to be the Langga you can laugh at and love forever.
+",
+    "Potpot, you’re my pretty gf, my favorite “oops,” and the sweetest reason I smile every day.
+
+Yours (sometimes silly but always yours),
+Langga"
+  ];
+  let msgIndex = 0;
+
+  function revealMessage() {
+    const box = document.getElementById('messageBox');
+    if (msgIndex < messages.length) {
+      box.style.display = 'block';
+      box.innerText = messages[msgIndex];
+      msgIndex++;
+    } else {
+      box.innerHTML = "<strong>That's all... for now. But my love never runs out. 💗</strong>";
+    }
+  }
+
+  // Quiz
+  const questions = [
+    { q: "What’s my comfort food?", a: "Pizza" },
+    { q: "Favorite place to visit together?", a: "Beach" },
+    { q: "What song reminds me of us?", a: "Perfect" }
+  ];
+  let quizIndex = 0;
+  let score = 0;
+
+  function startQuiz() {
+    const box = document.getElementById('quizBox');
+    box.style.display = 'block';
+    if (quizIndex < questions.length) {
+      const current = questions[quizIndex];
+      const answer = prompt(current.q);
+      if (answer && answer.trim().toLowerCase() === current.a.toLowerCase()) {
+        score++;
+        alert("Yay! You're right 💞");
+      } else {
+        alert(`Oops! I was thinking of "${current.a}".`);
+      }
+      quizIndex++;
+      startQuiz();
+    } else {
+      box.innerHTML = `<p>Your score: ${score} / ${questions.length}</p><strong>You're my favorite answer anyway 😘</strong>`;
+    }
+  }
+
+  // Photo slider
+  const photos = ["IMG_1728.JPG", "IMG_2809.JPG", "IMG_2783.JPG"];
+  let photoIndex = 0;
+
+  function showSlider() {
+    document.getElementById('sliderBox').style.display = 'block';
+    updatePhoto();
+  }
+
+  function updatePhoto() {
+    document.getElementById('sliderImage').src = photos[photoIndex];
+  }
+
+  function nextPhoto() {
+    photoIndex = (photoIndex + 1) % photos.length;
+    updatePhoto();
+  }
+
+  function prevPhoto() {
+    photoIndex = (photoIndex - 1 + photos.length) % photos.length;
+    updatePhoto();
+  }
+
+  // Video
+  function showVideo() {
+    document.getElementById('videoBox').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
