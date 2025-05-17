@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Monthsary, Darling!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      color: #d6336c;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .heart { animation: pulse 1s infinite; font-size: 2rem; }
+
+    @keyframes pulse {
+      0% { transform: scale(1); color: #ff4d6d; }
+      50% { transform: scale(1.2); color: #ff1a4b; }
+      100% { transform: scale(1); color: #ff4d6d; }
+    }
+
+    section { margin: 2rem 0; }
+
+    button {
+      background: #ff99ac;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #ff4d6d; }
+
+    #messageBox, #quizBox, #sliderBox, #videoBox {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    #sliderBox img {
+      max-width: 90%;
+      border-radius: 10px;
+    }
+
+    video {
+      width: 90%;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Happy Monthsary, Darling! 💖</h1>
+  <p class="heart">❤️💗💓💖💘💝</p>
+  <p><strong>Date:</strong> May 17, 2025</p>
+
+  <!-- Love Letter Game -->
+  <section>
+    <h2>💌 Love Letter</h2>
+    <p>Click to unlock sweet messages</p>
+    <button onclick="revealMessage()">Open Love Letter</button>
+    <div id="messageBox"></div>
+  </section>
+
+  <!-- Quiz -->
+  <section>
+    <h2>❓ How Well Do You Know Me?</h2>
+    <button onclick="startQuiz()">Start Quiz</button>
+    <div id="quizBox"></div>
+  </section>
+
+  <!-- Photo Slider -->
+  <section>
+    <h2>🖼️ Our Memories</h2>
+    <button onclick="showSlider()">View Photo Slider</button>
+    <div id="sliderBox">
+      <img id="sliderImage" src="" alt="Photo" />
+      <br>
+      <button onclick="prevPhoto()">⏮️</button>
+      <button onclick="nextPhoto()">⏭️</button>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section>
+    <h2>🎬 Special Video</h2>
+    <button onclick="showVideo()">Watch Video</button>
+    <div id="videoBox">
+      <video controls>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <script>
+    // Love Letter Messages
+    const messages = [
+      "From day one, you've made me smile like no one else 💞",
+      "I never thought I could love someone this much 😘",
+      "Thank you for being mine, even on my worst days 💗",
+      "You're my home, my heart, and my happiness ❤️",
+      "Happy monthsary, Darling. Here's to forever 💍"
+    ];
+    let msgIndex = 0;
+
+    function revealMessage() {
+      const box = document.getElementById('messageBox');
+      if (msgIndex < messages.length) {
+        box.style.display = 'block';
+        box.innerText = messages[msgIndex];
+        msgIndex++;
+      } else {
+        box.innerHTML = "<strong>That's all, my love! But there's more in my heart always. 💖</strong>";
+      }
+    }
+
+    // Quiz Section
+    const questions = [
+      { q: "What’s my favorite color?", a: "Red" },
+      { q: "What food do I love the most?", a: "Pizza" },
+      { q: "Where do I want us to travel?", a: "Japan" }
+    ];
+    let quizIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+      const box = document.getElementById('quizBox');
+      box.style.display = 'block';
+      if (quizIndex < questions.length) {
+        const current = questions[quizIndex];
+        const answer = prompt(current.q);
+        if (answer && answer.trim().toLowerCase() === current.a.toLowerCase()) {
+          score++;
+          alert("Correct! 😊");
+        } else {
+          alert(`Oops! The answer was "${current.a}".`);
+        }
+        quizIndex++;
+        startQuiz(); // move to next
+      } else {
+        box.innerHTML = `<p>Your score: ${score} / ${questions.length}</p><strong>Great job, my love! 💕</strong>`;
+      }
+    }
+
+    // Photo Slider
+    const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"]; // Replace with your photo filenames
+    let photoIndex = 0;
+
+    function showSlider() {
+      const box = document.getElementById('sliderBox');
+      box.style.display = 'block';
+      updatePhoto();
+    }
+
+    function updatePhoto() {
+      document.getElementById('sliderImage').src = photos[photoIndex];
+    }
+
+    function nextPhoto() {
+      photoIndex = (photoIndex + 1) % photos.length;
+      updatePhoto();
+    }
+
+    function prevPhoto() {
+      photoIndex = (photoIndex - 1 + photos.length) % photos.length;
+      updatePhoto();
+    }
+
+    // Video
+    function showVideo() {
+      document.getElementById('videoBox').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
