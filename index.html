@@ -4,15 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Monthsary, My Love</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/jellee-roman" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #1f0036, #330033);
-      color: #f8f8ff;
-      overflow-x: hidden;
-    }
+  font-family: 'Jellee Roman', 'Inter', sans-serif;
+}
+
 
     header {
       text-align: center;
@@ -22,9 +20,14 @@
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+  font-family: 'Jellee Roman', sans-serif;
+}
+
+#messageBox pre {
+  font-family: 'Jellee Roman', sans-serif;
+  font-size: 1.1rem;
+}
+
 
     header p {
       font-size: 1.2rem;
@@ -110,8 +113,8 @@
 <body>
 
 <header>
-  <h1>💖 Happy Monthsary, Darling 💖</h1>
-  <p>May 17, 2025 — A night filled with stars... and us 🌌</p>
+  <h1>💖 Happy Monthsary, Langga 💖</h1>
+  <p>May 18, 2025 — A night filled with stars... and us 🌌</p>
 </header>
 
 <section>
@@ -127,7 +130,7 @@
 </section>
 
 <section>
-  <h2>🖼️ Our Photo Memories</h2>
+  <h2>🖼️ My Pretty GF</h2>
   <button onclick="showSlider()">View Photos</button>
   <div id="sliderBox">
     <img id="sliderImage" src="" alt="Us 💑" />
@@ -149,36 +152,39 @@
 </section>
 
 <footer>
-  Made with 💕 just for you.
+  Behave Always💕.
 </footer>
 
 <script>
-  // Love messages
-  const messages = [
-    "You're the best part of every day 🌸",
-    "I fall for you deeper each moment 💕",
-    "You make ordinary days feel magical ✨",
-    "I'm so lucky to have you 💘",
-    "Happy Monthsary, love. Forever to go ❤️"
-  ];
-  let msgIndex = 0;
+  // Love letter (single message, formatted)
+  const loveLetter = `Hey Potpot Jemille,
+
+Five months of us — wow, that’s like… a million in relationship years, right?
+We’ve had some epic battles (mostly me losing the argument), a few misunderstandings (okay, maybe a lot), and yes, I’ve messed up more times than I can count. But hey, you’re still here! How do you do that? Are you part superhero or just really patient?
+
+You’re my favorite chaos and calm wrapped in one.
+Like a beautiful storm that sometimes throws a tantrum but always ends with a rainbow — that’s us.
+
+I’m sorry for all my mistakes — the times I forgot to text back, the silly fights, and those “Langga, what were you thinking?” moments. Still, you stuck with me like glue on a windy day, and honestly, you deserve a medal… or at least a lifetime supply of snacks.
+
+So here’s to five months of love, laughter, and learning how to survive each other’s quirks. I promise to keep trying to be the Langga you can laugh at and love forever.
+
+Potpot, you’re my pretty gf, my favorite “oops,” and the sweetest reason I smile every day.
+
+Yours (sometimes silly but always yours),
+Langga`;
 
   function revealMessage() {
     const box = document.getElementById('messageBox');
-    if (msgIndex < messages.length) {
-      box.style.display = 'block';
-      box.innerText = messages[msgIndex];
-      msgIndex++;
-    } else {
-      box.innerHTML = "<strong>That's all... for now. But my love never runs out. 💗</strong>";
-    }
+    box.style.display = 'block';
+    box.innerHTML = `<pre style="white-space: pre-wrap; text-align: left; font-size: 1rem; line-height: 1.6;">${loveLetter}</pre>`;
   }
 
-  // Quiz
+  // Quiz (unchanged)
   const questions = [
-    { q: "What’s my comfort food?", a: "Pizza" },
-    { q: "Favorite place to visit together?", a: "Beach" },
-    { q: "What song reminds me of us?", a: "Perfect" }
+    { q: "Ano pinaka hate ko?", a: "Guys" },
+    { q: "Anong bagay ako nasisiyahan pero naiinis?", a: "Games" },
+    { q: "Anong food favorite mo?", a: "Corn/Mais" }
   ];
   let quizIndex = 0;
   let score = 0;
@@ -230,6 +236,3 @@
     document.getElementById('videoBox').style.display = 'block';
   }
 </script>
-
-</body>
-</html>
